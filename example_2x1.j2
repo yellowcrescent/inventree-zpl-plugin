@@ -1,0 +1,60 @@
+^CI28
+^XA
+
+^FX Barcode
+^BY6,2,200
+^FO20,20^BO^FD{{ name }}^FS
+
+^FX Info
+^CFQ,10
+^FO150,18^FD{{ name }}^FS
+
+^FX Manufacturer
+^CFQ,10
+^FO150,45^FD{{ params.Manufacturer }}^FS
+
+^FX Main Description + Category
+^CF0,17
+^FO150,85^FD{{ description[0:30] }}^FS
+^FO150,100^FD{{ description[30:60] }}^FS
+^CF0,25
+^FO150,115^FD{{ category }}^FS
+
+{% if params.Package is defined %}
+^FX Info Box - Package Type
+^CFA,20
+^FO20,140^GB{{ params.Package|length * 13 }},26,1,B,0^FS
+^FO25,145^FD{{ params.Package }}^FS
+{% endif %}
+
+{# Set the value block depending on category #}
+{% if category == 'Resistor' and params.Resistance is defined %}
+^FX Info Box - Main Value
+^CFA,30
+^FO{{ 30 + params.Package|length * 13 }},140^GB{{ params.Resistance|length * 20 }},36,1,B,0^FS
+^FO{{ 35 + params.Package|length * 13 }},148^FD{{ params.Resistance }}^FS
+
+{% elif category == 'Capacitor' and params.Capacitance is defined %}
+^FX Info Box - Main Value
+^CFA,30
+^FO{{ 30 + params.Package|length * 13 }},140^GB{{ params.Capacitance|length * 20 }},36,1,B,0^FS
+^FO{{ 35 + params.Package|length * 13 }},148^FD{{ params.Capacitance }}F^FS
+
+{% elif category == 'Inductor' and params.Inductance is defined %}
+^FX Info Box - Main Value
+^CFA,30
+^FO{{ 30 + params.Package|length * 13 }},140^GB{{ params.Inductance|length * 20 }},36,1,B,0^FS
+^FO{{ 35 + params.Package|length * 13 }},148^FD{{ params.Inductance }}H^FS
+
+{% elif params.Value is defined %}
+^FX Info Box - Generic Value
+^CFA,30
+^FO{{ 30 + params.Package|length * 13 }},140^GB{{ params.Value|length * 20 }},36,1,B,0^FS
+^FO{{ 35 + params.Package|length * 13 }},148^FD{{ params.Value }}^FS
+{% endif %}
+
+^FX Part ID/Primary key
+^CF0,15
+^FO290,175^FD#{{ pk }}^FS
+
+^XZ

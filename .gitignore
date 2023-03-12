@@ -1,0 +1,7 @@
+__pycache__
+*.egg-info
+*.log
+*.bak
+.vscode
+.vs
+.idea
