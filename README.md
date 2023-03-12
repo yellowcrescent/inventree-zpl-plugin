@@ -2,6 +2,8 @@
 
 ZPL (Zebra Printer Language) plugin for [InvenTree](https://inventree.org/). This plugin uses a [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) ZPL template to generate barcode labels for parts and stock items, then sends the generated ZPL directly to a network-attached ZPL-capable printer (such as the Zebra GK420t).
 
+![](https://ss.ycnrg.org/jotunn_20230312_013013.png)
+
 ## Config Options
 
 * `HOSTNAME` - Hostname or IP address of the target printer
@@ -20,6 +22,7 @@ For overall design, it is recommended to use the [Labelary Online Viewer](http:/
 For a more in-depth look at using ZPL, check out Labelary's [Introduction to ZPL](http://labelary.com/zpl.html) page.
 
 > [ZPL Command Reference](http://labelary.com/docs.html)
+
 > [Jinja Template Designer Documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/)
 
 ## Template Fields
@@ -49,6 +52,8 @@ So why use ZPL for printing labels instead of rendering them to PDF or PNG first
 1. You need to create a different template for each label size you wish to print
 2. The InvenTree worker must have network access to the printer. This could be a problem if you run InvenTree from a remote VPS or cloud environment (this could be overcome with a tunnel or VPN, but may not be worth it).
 3. Custom graphics and fonts can be a pain to work with. It is possible to upload custom images and fonts to most printers, then recall them later (see FAQ). ZPL also supports in-line bitmap graphics, but this will make your templates huge and cumbersome to manage.
+
+![](https://ss.ycnrg.org/jotunn_20230312_013159.png)
 
 # FAQ
 
