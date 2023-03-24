@@ -23,7 +23,7 @@ class ZPLLabelPlugin(LabelPrintingMixin, SettingsMixin, InvenTreePlugin):
 
     AUTHOR = "Jacob Hipps <jacob@ycnrg.org>"
     DESCRIPTION = "ZPL Label Plugin"
-    VERSION = "0.1.0"
+    VERSION = "0.1.1"
     NAME = "ZPL"
     SLUG = "zpl"
     TITLE = "ZPL Label Printer"
