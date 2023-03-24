@@ -10,7 +10,7 @@ setup(
     keywords = "inventree zpl label plugin",
     url = "https://ycnrg.org/",
 
-    packages = [],
+    packages = find_packages(),
     scripts = [],
 
     install_requires = ['jinja2'],

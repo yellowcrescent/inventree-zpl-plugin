@@ -4,6 +4,21 @@ ZPL (Zebra Printer Language) plugin for [InvenTree](https://inventree.org/). Thi
 
 ![](https://ss.ycnrg.org/jotunn_20230312_013013.png)
 
+## Installation
+
+For a baremetal installation:
+
+```
+pip install git+https://github.com/yellowcrescent/inventree-zpl-plugin
+```
+
+For Docker installations, edit the `plugins.txt` file and add the following:
+```
+git+https://github.com/yellowcrescent/inventree-zpl-plugin
+```
+
+Then restart via `docker-compose`, or restart the `inventree-server` and `inventree-worker` containers.
+
 ## Config Options
 
 * `HOSTNAME` - Hostname or IP address of the target printer
